@@ -1,0 +1,5 @@
+whatsapp-bot/
+├── index.js          # Main bot file
+├── package.json      # Dependencies
+├── .replit           # Replit config
+└── README.md         # Instructions
