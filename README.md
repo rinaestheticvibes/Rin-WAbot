@@ -1,29 +1,28 @@
-# WhatsApp Bot
+# WhatsApp Bot with QR Linking
 
-A simple bot that uses WhatsApp's direct chat link (no QR codes).
+A bot that generates a QR code to link with WhatsApp Web.
 
-## 🚀 Setup
-1. **Edit phone number** in `index.js`:
-   ```javascript
-   const YOUR_PHONE_NUMBER = "918787550589"; // Change this!
-   ```
-
-2. **Install dependencies**:
+## 🛠 Setup
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-3. **Run locally**:
+2. Run the bot:
    ```bash
    npm start
    ```
 
-## 🌐 Deploy to Replit
-1. Upload all files to Replit
-2. Click "Run"
-3. Share the generated Replit URL with users
+3. Scan the QR code with WhatsApp Mobile:
+   - Open WhatsApp → Settings → Linked Devices → Link a Device
 
-## 📱 How It Works
-- Users click your WhatsApp link
-- They send commands like `!hello`, `!menu`
-- You manually reply (or use WhatsApp Business auto-reply)
+## 🌐 Deploy to Replit
+1. Import this repo to Replit
+2. Click "Run"
+3. Scan the QR from:
+   - Replit webpage (image QR) **OR**
+   - Replit console (terminal QR)
+
+## 🔄 Session Persistence
+- After first scan, the bot will auto-login
+- Session data is saved in `./.wwebjs_auth`
