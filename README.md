@@ -1,28 +1,12 @@
-# WhatsApp Bot with QR Linking
+# Rin Wabot
 
-A bot that generates a QR code to link with WhatsApp Web.
+A simple WhatsApp bot using Baileys and Node.js. Works on Replit, linked to your WhatsApp using the "Link Device" QR code.
 
-## 🛠 Setup
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
+## Setup Steps
 
-2. Run the bot:
-   ```bash
-   npm start
-   ```
+1. **Import this repository to [Replit](https://replit.com)**.
+2. In the Shell, run:
 
-3. Scan the QR code with WhatsApp Mobile:
-   - Open WhatsApp → Settings → Linked Devices → Link a Device
-
-## 🌐 Deploy to Replit
-1. Import this repo to Replit
-2. Click "Run"
-3. Scan the QR from:
-   - Replit webpage (image QR) **OR**
-   - Replit console (terminal QR)
-
-## 🔄 Session Persistence
-- After first scan, the bot will auto-login
-- Session data is saved in `./.wwebjs_auth`
+```bash
+npm install
+npm start
