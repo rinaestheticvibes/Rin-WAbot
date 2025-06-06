@@ -1,21 +1,29 @@
-const { default: makeWASocket, useMultiFileAuthState } = require('@whiskeysockets/baileys');
-const { handleMessage } = require('./handler');
+const { default: makeWASocket, useSingleFileAuthState } = require('@whiskeysockets/baileys');
+const fs = require('fs');
+const { session } = require('./settings');
+
+// Write session to temp file so Baileys can load it
+const SESSION_PATH = './auth_info.json';
+fs.writeFileSync(SESSION_PATH, session);
+
+const { state, saveState } = useSingleFileAuthState(SESSION_PATH);
 
 async function startBot() {
-    const { state, saveCreds } = await useMultiFileAuthState('auth_info');
-
-    const sock = makeWASocket({
-        auth: state,
-        printQRInTerminal: true
-    });
+    const sock = makeWASocket({ auth: state });
 
     sock.ev.on('messages.upsert', async ({ messages }) => {
         const msg = messages[0];
         if (!msg.message || msg.key.fromMe) return;
-        await handleMessage(sock, msg);
+
+        const text = msg.message.conversation || '';
+        const from = msg.key.remoteJid;
+
+        if (text.toLowerCase() === 'ping') {
+            await sock.sendMessage(from, { text: 'Pong!' });
+        }
     });
 
-    sock.ev.on('creds.update', saveCreds);
+    sock.ev.on('creds.update', saveState);
 }
 
 startBot();
