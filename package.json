@@ -1,9 +1,9 @@
 {
-  "name": "rin-wabot",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "whatsapp-bot",
+  "main": "bot.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node bot.js",
+    "generate-session": "node session-gen.js"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.6.0"
